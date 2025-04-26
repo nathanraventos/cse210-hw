@@ -4,15 +4,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep2 World!");
-
+        // Ask for the user's grade percentage
         Console.WriteLine("What is your grade percentage? ");
         string userAnswer = Console.ReadLine();
         int userGrade = int.Parse(userAnswer);
 
+        // Initialize variables for letter grade and grade sign
         string letterGrade = "";
         string gradeSign = "";
 
+        // Determine the letter grade based on the user's percentage
         if (userGrade >= 90)
         {
             letterGrade = "A";
@@ -34,6 +35,7 @@ class Program
             letterGrade = "F";
         }
 
+         // Determine the grade sign (+ or -) based on the last digit of the grade
         if (userGrade % 10 >= 7)
         {
            gradeSign = "+";
@@ -43,6 +45,7 @@ class Program
             gradeSign = "-";
         }
 
+        // Print the grade, handling the exception for "A+" or "F+" which are not allowed
         if (letterGrade == "A" && gradeSign == "+" || letterGrade == "F" && gradeSign == "+" || gradeSign == "-")
         {
             Console.WriteLine($"You recieved a {letterGrade} for this class.");
@@ -52,6 +55,7 @@ class Program
              Console.WriteLine($"You recieved a {letterGrade}{gradeSign} for this class.");
         }
 
+        // Provide a passing or failing message
         if (userGrade >= 70)
         {
             Console.WriteLine("You passed the class! Absolute Legend!");
@@ -60,8 +64,5 @@ class Program
         {
             Console.WriteLine("You failed, but you got it next time!");
         }
-
-
-
     }
 }
