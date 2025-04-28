@@ -10,14 +10,12 @@ class Program
     {
         Console.WriteLine("What is your name?");
         string userName = Console.ReadLine();
-        Console.WriteLine($"Hello there, {userName}!");
         return userName;
     }
     static int PromptUserNumber()
     {
-       Console.WriteLine("What's your favorite number? ");
+       Console.WriteLine("hat's your favorite number? ");
        int favoriteNumber = int.Parse(Console.ReadLine());
-       Console.WriteLine($"Wow! {favoriteNumber} is a good number!");
        return favoriteNumber;
     }
     static int SquareNumber(int number)
@@ -26,7 +24,7 @@ class Program
     }
     static void DisplayResult(string userName, int squaredNumber)
     {
-        Console.WriteLine($" Hey {userName}, the square of your favorite number is {squaredNumber}");
+        Console.WriteLine($"Hey {userName}, the square of your favorite number is {squaredNumber}");
     }
     static void Main(string[] args)
     {
