@@ -13,6 +13,14 @@ class Program
         "If you had one thing you could do over today, what would it be?"
         };
 
+        List<string> quotes = new List<string>
+            {
+                "Believe you can and you're halfway there.",
+                "Every moment is a fresh beginning.",
+                "Stay positive, work hard, make it happen.",
+                "Dream big and dare to fail."
+            };
+
         Journal journal = new Journal();
         Random random = new Random();
         int choice = 0;
@@ -25,24 +33,30 @@ class Program
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit"); 
+            Console.WriteLine("5. Quit");
+            Console.WriteLine("6. Search");
+
 
             choice = int.Parse(Console.ReadLine());
 
             if (choice == 1)
             {
-            string prompt = prompts[random.Next(prompts.Count)];
-            Console.WriteLine(prompt);
+                Console.WriteLine();
+                Console.WriteLine(" Inspiration for you: " + quotes[random.Next(quotes.Count)]);
+                Console.WriteLine();
 
-            Console.Write("Your response: ");
-            string response = Console.ReadLine();
+                string prompt = prompts[random.Next(prompts.Count)];
+                Console.WriteLine(prompt);
 
-            string date = DateTime.Now.ToShortDateString();
-            Entry entry = new Entry(date, prompt, response);
-            journal.AddEntry(entry);
-            }    
+                Console.Write("Your response: ");
+                string response = Console.ReadLine();
 
-            else if (choice == 2) 
+                string date = DateTime.Now.ToShortDateString();
+                Entry entry = new Entry(date, prompt, response);
+                journal.AddEntry(entry);
+            }
+
+            else if (choice == 2)
             {
                 journal.DisplayAllEntries();
             }
@@ -59,6 +73,13 @@ class Program
                 Console.Write("Enter a filename to save: ");
                 string filename = Console.ReadLine();
                 journal.SaveToFile(filename);
+            }
+            else if (choice == 6)
+            {
+                Console.Write("Enter a keyword to search: ");
+                string keyword = Console.ReadLine();
+                journal.SearchEntries(keyword);
+
             }
         }
     }

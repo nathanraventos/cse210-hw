@@ -57,4 +57,15 @@ public class Journal
             Console.WriteLine("File not found.");
         }
     }
+    public void SearchEntries(string keyword)
+    {
+        foreach (Entry entry in _entries)
+        {
+            if (entry.Prompt.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                entry.Response.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            {
+                entry.Display();
+            }
+        }
+    }
 }
