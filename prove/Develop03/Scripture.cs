@@ -78,7 +78,4 @@ public class Scripture
             word.Reveal();
         }
     }
-
-
-
 }

@@ -1,5 +1,3 @@
-
-
 public class Word
 {
     private string _word;
@@ -7,7 +5,6 @@ public class Word
     private string _hidden;
 
     private bool _isVisible;
-
 
     public Word(string word)
     {
