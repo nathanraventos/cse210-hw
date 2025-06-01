@@ -1,4 +1,4 @@
-using System.Data;
+
 
 public class Word
 {
@@ -21,9 +21,19 @@ public class Word
         _isVisible = false;
     }
 
+    public bool IsVisible()
+    {
+        return _isVisible;
+    }
+
     public string Display()
     {
         return _isVisible ? _word : _hidden;
+    }
+
+    public void Reveal()
+    {
+        _isVisible = true;
     }
 }
 

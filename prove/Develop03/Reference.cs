@@ -1,12 +1,10 @@
-using System.Data;
+
 
 public class Reference
 {
     private string _reference;
 
-    private List<Scripture> _scriptures;
-
-    public Reference(string reference, string verseText)
+    public Reference(string reference)
     {
         _reference = reference;
     }
