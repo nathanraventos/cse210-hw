@@ -29,6 +29,10 @@ public class Activity
         ShowSpinner(3);
     }
 
+    public string GetName()
+    {
+        return _name;
+    }
     public int GetDuration()
     {
         return _duration;
