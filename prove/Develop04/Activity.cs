@@ -33,6 +33,7 @@ public class Activity
     {
         return _name;
     }
+    
     public int GetDuration()
     {
         return _duration;
