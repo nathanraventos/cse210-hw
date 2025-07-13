@@ -16,6 +16,17 @@ public class Workout
         Console.WriteLine($"Date: {_date}, Duration: {_duration} mins");
     }
 
-    public string GetDate() => _date;
-    public int GetDuration() => _duration;
+    public virtual string GetWorkoutType()
+    {
+        return "Generic Workout";
+    }
+
+    public string GetDate()
+    {
+        return _date;
+    }
+    public int GetDuration()
+    {
+        return _duration;
+    } 
 }

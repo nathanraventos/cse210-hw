@@ -17,6 +17,13 @@ public class Cardio : Workout
         Console.WriteLine($"Distance: {_distance} miles, Pace: {_pace} min/mile");
     }
 
-    public float GetDistance() => _distance;
-    public float GetPace() => _pace;
+    public float GetDistance()
+    {
+        return _distance;
+    }
+
+    public float GetPace()
+    {
+        return _pace;
+    }
 }

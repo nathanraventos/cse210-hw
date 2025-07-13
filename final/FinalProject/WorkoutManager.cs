@@ -14,7 +14,9 @@ public class WorkoutManager
     {
         Console.WriteLine("Choose workout type:");
         Console.WriteLine("1. Endurance Cardio");
-        Console.WriteLine("2. Bodyweight Strength");
+        Console.WriteLine("2. Swimming Cardio");
+        Console.WriteLine("3. Bodyweight Strength");
+        Console.WriteLine("4. Weighted Strength");
         Console.Write("Your choice: ");
         string typeChoice = Console.ReadLine();
 
@@ -121,7 +123,6 @@ public class WorkoutManager
         }
     }
 
-
     public void ShowHistory()
     {
         if (_workoutList.Count == 0)
@@ -132,8 +133,8 @@ public class WorkoutManager
         {
             foreach (Workout workout in _workoutList)
             {
+                Console.WriteLine($"\nWorkout Type: {workout.GetWorkoutType()}");
                 workout.DisplayDetails();
-                Console.WriteLine(); // spacing
             }
         }
     }

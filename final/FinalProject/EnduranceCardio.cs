@@ -18,6 +18,18 @@ public class EnduranceCardio : Cardio
         Console.WriteLine($"Target Duration: {_targetDuration} min, Avg Heart Rate: {_avgHeartRate} bpm");
     }
 
-    public int GetTargetDuration() => _targetDuration;
-    public int GetAvgHeartRate() => _avgHeartRate;
+    public override string GetWorkoutType()
+    {
+        return "Endurance Cardio";
+    }
+
+    public int GetTargetDuration()
+    {
+        return _targetDuration;
+    }
+
+    public int GetAvgHeartRate()
+    {
+        return _avgHeartRate;
+    }
 }

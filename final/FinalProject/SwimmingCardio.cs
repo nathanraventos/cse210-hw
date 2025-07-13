@@ -20,9 +20,23 @@ public class SwimmingCardio : Cardio
         Console.WriteLine($"Laps: {_laps}, Stroke: {_strokeType}, Pool Length: {_poolLength} m");
     }
 
-    public int GetLaps() => _laps;
-    public string GetStrokeType() => _strokeType;
-    public float GetPoolLength() => _poolLength;
+    public override string GetWorkoutType()
+    {
+        return "Swimming Cardio";
+    }
 
+    public int GetLaps()
+    {
+        return _laps;
+    }
 
+    public string GetStrokeType()
+    {
+        return _strokeType;
+    }
+
+    public float GetPoolLength()
+    {
+        return _poolLength;
+    }
 }

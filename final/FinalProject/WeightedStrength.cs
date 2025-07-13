@@ -21,7 +21,23 @@ public class WeightedStrength : Strength
         Console.WriteLine($"Weight: {_weight} kg, Equipment: {_equipmentName}, Rest Time: {_restTime} sec");
     }
 
-    public float GetWeight() => _weight;
-    public string GetEquipmentName() => _equipmentName;
-    public int GetRestTime() => _restTime;
+    public override string GetWorkoutType()
+    {
+        return "Weighted Strength";
+    }
+
+    public float GetWeight()
+    {
+        return _weight;
+    }
+
+    public string GetEquipmentName()
+    {
+        return _equipmentName;
+    }
+
+    public int GetRestTime()
+    {
+        return _restTime;
+    }
 }

@@ -20,8 +20,19 @@ public class Strength : Workout
         Console.WriteLine($"Exercise: {_exerciseName}, Sets: {_sets}, Reps: {_reps}");
     }
 
-    public int GetSets() => _sets;
-    public int GetReps() => _reps;
-    public string GetExerciseName() => _exerciseName;
+    public int GetSets()
+    {
+        return _sets;
+    }
+
+    public int GetReps()
+    {
+        return _reps;
+    }
+
+    public string GetExerciseName()
+    {
+        return _exerciseName;
+    }
 }
 

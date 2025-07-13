@@ -21,7 +21,23 @@ public class BodyweightStrength : Strength
         Console.WriteLine($"Difficulty: {_difficultyLevel}, Isometric: {_isIsometric}, Hold Time: {_holdTime} sec");
     }
 
-    public string GetDifficultyLevel() => _difficultyLevel;
-    public bool GetIsIsometric() => _isIsometric;
-    public int GetHoldTime() => _holdTime;
+    public override string GetWorkoutType()
+    {
+        return "Bodyweight Strength";
+    }
+
+    public string GetDifficultyLevel()
+    {
+        return _difficultyLevel;
+    }
+
+    public bool GetIsIsometric()
+    {
+        return _isIsometric;
+    }
+
+    public int GetHoldTime()
+    {
+        return _holdTime;
+    }
 }
