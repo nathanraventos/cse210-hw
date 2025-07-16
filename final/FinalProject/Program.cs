@@ -12,7 +12,9 @@ class Program
             Console.WriteLine("\nWorkout Tracker");
             Console.WriteLine("1. Add Workout");
             Console.WriteLine("2. Show History");
-            Console.WriteLine("3. Quit");
+            Console.WriteLine("3. Save Workouts");
+            Console.WriteLine("4. Load Workouts");
+            Console.WriteLine("5. Quit");
             Console.Write("Choose an option: ");
             string choice = Console.ReadLine();
 
@@ -25,6 +27,12 @@ class Program
                     manager.ShowHistory();
                     break;
                 case "3":
+                    manager.SaveWorkout();
+                    break;
+                    case "4":
+                    manager.LoadWorkouts();
+                    break;
+                case "5":
                     running = false;
                     break;
                 default:

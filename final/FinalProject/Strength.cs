@@ -35,4 +35,3 @@ public class Strength : Workout
         return _exerciseName;
     }
 }
-

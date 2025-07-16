@@ -10,7 +10,7 @@ public class WorkoutManager
         _workoutList = new List<Workout>();
     }
 
-   public void AddWorkout()
+    public void AddWorkout()
     {
         Console.WriteLine("Choose workout type:");
         Console.WriteLine("1. Endurance Cardio");
@@ -48,10 +48,10 @@ public class WorkoutManager
         else if (typeChoice == "2")
         {
             // Swimming Cardio
-            Console.Write("Enter distance (km): ");
+            Console.Write("Enter distance (miles): ");
             float distance = float.Parse(Console.ReadLine());
 
-            Console.Write("Enter pace (min/km): ");
+            Console.Write("Enter pace (miles/min): ");
             float pace = float.Parse(Console.ReadLine());
 
             Console.Write("Enter laps: ");
@@ -104,16 +104,13 @@ public class WorkoutManager
             Console.Write("Enter reps: ");
             int reps = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter weight (kg): ");
+            Console.Write("Enter weight (lbs): ");
             float weight = float.Parse(Console.ReadLine());
-
-            Console.Write("Enter equipment name: ");
-            string equipmentName = Console.ReadLine();
 
             Console.Write("Enter rest time (seconds): ");
             int restTime = int.Parse(Console.ReadLine());
 
-            Workout newWorkout = new WeightedStrength(date, duration, sets, reps, exerciseName, weight, equipmentName, restTime);
+            Workout newWorkout = new WeightedStrength(date, duration, sets, reps, exerciseName, weight, restTime);
             _workoutList.Add(newWorkout);
             Console.WriteLine("Workout added.");
         }
@@ -141,11 +138,59 @@ public class WorkoutManager
 
     public void SaveWorkout()
     {
-        // Placeholder
-    }
+        string fileName = "workouts.txt";
+        using (StreamWriter writer = new StreamWriter(fileName))
+        {
+            foreach (Workout workout in _workoutList)
+            {
+                writer.WriteLine($"Workout Type: {workout.GetWorkoutType()}");
+                writer.WriteLine($"Date: {workout.GetDate()}, Duration: {workout.GetDuration()} min");
 
-    public void ShowStats()
+                // Save extra details based on workout type
+                if (workout is EnduranceCardio ec)
+                {
+                    writer.WriteLine($"Distance: {ec.GetDistance()} miles, Pace: {ec.GetPace()} min/mile");
+                    writer.WriteLine($"Target Duration: {ec.GetTargetDuration()} min, Avg Heart Rate: {ec.GetAvgHeartRate()} bpm");
+                }
+                else if (workout is SwimmingCardio sc)
+                {
+                    writer.WriteLine($"Distance: {sc.GetDistance()} mile, Pace: {sc.GetPace()} min/mile");
+                    writer.WriteLine($"Laps: {sc.GetLaps()}, Stroke: {sc.GetStrokeType()}, Pool Length: {sc.GetPoolLength()} m");
+                }
+                else if (workout is BodyweightStrength bs)
+                {
+                    writer.WriteLine($"Exercise: {bs.GetExerciseName()}, Sets: {bs.GetSets()}, Reps: {bs.GetReps()}");
+                    writer.WriteLine($"Difficulty: {bs.GetDifficultyLevel()}, Isometric: {bs.GetIsIsometric()}, Hold Time: {bs.GetHoldTime()} sec");
+                }
+                else if (workout is WeightedStrength ws)
+                {
+                    writer.WriteLine($"Exercise: {ws.GetExerciseName()}, Sets: {ws.GetSets()}, Reps: {ws.GetReps()}");
+                    writer.WriteLine($"Weight: {ws.GetWeight()} lbs, Rest Time: {ws.GetRestTime()} sec");
+                }
+
+                writer.WriteLine(); // blank line between workouts
+            }
+        }
+
+        Console.WriteLine("Workouts saved to workouts.txt");
+    }
+    
+    public void LoadWorkouts()
     {
-        // Placeholder
+        string fileName = "workouts.txt";
+
+        if (File.Exists(fileName))
+        {
+            Console.WriteLine($"\nContents of {fileName}:\n");
+            string[] lines = File.ReadAllLines(fileName);
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+        }
+        else
+        {
+            Console.WriteLine("No saved workout file found.");
+        }
     }
 }
